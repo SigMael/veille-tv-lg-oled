@@ -1,0 +1,42 @@
+name: Veille TV LG OLED
+
+on:
+  schedule:
+    - cron: '7,27,47 * * * *'
+  workflow_dispatch:
+    inputs:
+      notification_de_test:
+        description: Envoyer une notification de test
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: veille
+  cancel-in-progress: false
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 26
+
+      - name: Vérifier les offres
+        run: npm run veille
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NOTIFICATION_DE_TEST: ${{ inputs.notification_de_test }}
+
+      - name: Mémoriser les offres déjà signalées
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add etat.json
+          git diff --cached --quiet || { git commit -m "chore(etat): mettre à jour les offres signalées" && git push; }

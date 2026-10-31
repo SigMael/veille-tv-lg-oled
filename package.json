@@ -1,0 +1,16 @@
+{
+  "name": "veille-tv-lg-oled",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=26"
+  },
+  "scripts": {
+    "veille": "node src/veille.ts",
+    "verifier": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2"
+  }
+}
