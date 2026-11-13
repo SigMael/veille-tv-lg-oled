@@ -1,6 +1,9 @@
 {
   "echecs": {
-    "LG.fr G5 65\"": 25
+    "LG.fr G5 65\"": 26
   },
-  "offresSignalees": {}
+  "offresSignalees": {
+    "Dealabs:3454031": 1999,
+    "Dealabs:3454119": 1701.42
+  }
 }
