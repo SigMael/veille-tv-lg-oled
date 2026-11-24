@@ -1,8 +1,9 @@
 {
   "echecs": {
-    "LG.fr G5 65\"": 63
+    "LG.fr G5 65\"": 64
   },
   "offresSignalees": {
+    "Dealabs:3467894": 1999,
     "LG:https://www.lg.com/fr/tv-barres-de-son/oled-evo/lg-oled65g64lw/": 1999,
     "LG:https://www.lg.com/fr/tv-barres-de-son/oled-evo/oled65g66ls/": 1999
   }
